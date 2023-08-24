@@ -19,6 +19,15 @@ class FakeDb {
         ]
     }
 
+    async initDb() {
+        await this.cleanDb()
+        this.pushImagesToDb()
+    }
+
+    async cleanDb() {
+        await Image.deleteMany({})
+    }
+
     pushImagesToDb() {
         this.images.forEach(
             (image) => {
