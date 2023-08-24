@@ -1,6 +1,6 @@
 const Image = require('./model/image')
 
-class FakeDb {
+class Db {
 
     constructor() {
         this.images = [
@@ -43,4 +43,4 @@ class FakeDb {
 
 }
 
-module.exports = FakeDb
+module.exports = Db
