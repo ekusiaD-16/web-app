@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 
+import { images } from '../images';
+
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html',
@@ -7,6 +9,10 @@ import { Component } from '@angular/core';
 })
 export class ListComponent {
   
-  images : any = [ 1, 2, 3 ]
+  images = images
+
+  getFullPath(imagePath:string) {
+    return './assets/images/' + imagePath
+  }
 
 }

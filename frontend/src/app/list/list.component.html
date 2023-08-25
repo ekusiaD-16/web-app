@@ -2,11 +2,11 @@
     <div class="row">
         <div *ngFor="let image of images" class="col-sm">
             <div class="card" style="width: 18rem;">
-                <a [routerLink]="['/detail']">
-                    <img src="./assets/images/sample_img.png" class="card-img-top" alt="...">
+                <a [routerLink]="['/detail',image.name]">
+                    <img src={{getFullPath(image.path)}} class="card-img-top" alt="...">
                     <div class="card-body">
-                        <h5 class="card-title">image name</h5>
-                        <p class="card-text">state</p>
+                        <h5 class="card-title">{{image.name}}</h5>
+                        <p class="card-text">{{image.state}}</p>
                     </div>
                 </a>
             </div>

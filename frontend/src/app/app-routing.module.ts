@@ -5,7 +5,7 @@ import { DetailComponent } from './detail/detail.component';
 
 const routes : Routes = [
   { path : 'list', component : ListComponent },
-  { path : 'detail', component : DetailComponent },
+  { path : 'detail/:imageId', component : DetailComponent },
 ]
 
 @NgModule({

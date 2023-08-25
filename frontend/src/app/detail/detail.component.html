@@ -1,8 +1,11 @@
  <table>
-    <td>
+    <td class="editor">
       <app-editor></app-editor>
     </td>
-    <td>
+    <td class="canvas">
+      <div>{{image.name}}</div>
+      <div>{{image.path}}</div>
+      <div>{{image.state}}</div>
       <app-canvas></app-canvas>
     </td>
   </table>
