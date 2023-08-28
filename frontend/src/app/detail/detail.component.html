@@ -5,9 +5,9 @@
     </td>
     <td class="canvas">
       <div>{{image.name}}</div>
-      <div>{{image.path}}</div>
+      <div>{{getFullPath(image.path)}}</div>
       <div>{{image.state}}</div>
-      <app-canvas></app-canvas>
+      <app-canvas imagePath={{getFullPath(image.path)}}></app-canvas>
     </td>
   </table>
 </div>

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClientService } from '../service/http-client.service';
 
 import { Image } from '../Image'
+import { CommonService } from '../service/common.service';
 
 @Component({
   selector: 'app-list',
@@ -12,7 +13,10 @@ export class ListComponent implements OnInit {
   
   images : Image[] = []
 
-  constructor(private httpClientServise : HttpClientService) {}
+  constructor(
+    private httpClientServise : HttpClientService,
+    private common : CommonService,
+    ) {}
 
   ngOnInit(): void {
     const imagesObservable = this.httpClientServise.getImages()
@@ -23,7 +27,7 @@ export class ListComponent implements OnInit {
   }
 
   getFullPath(imagePath:string) {
-    return './assets/images/' + imagePath
+    return this.common.getFullPath(imagePath)
   }
 
 }
