@@ -4,6 +4,7 @@ import { ListComponent } from './list/list.component';
 import { DetailComponent } from './detail/detail.component';
 
 const routes : Routes = [
+  { path : '', component : ListComponent },
   { path : 'list', component : ListComponent },
   { path : 'detail/:imageId', component : DetailComponent },
 ]

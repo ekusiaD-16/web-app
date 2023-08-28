@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { HttpClientService } from '../service/http-client.service';
+import { CommonService } from '../service/common.service';
 
 @Component({
   selector: 'app-detail',
@@ -14,6 +15,7 @@ export class DetailComponent implements OnInit {
   id : string = ''
 
   constructor(private acRoute : ActivatedRoute,
+              private common : CommonService,
               private httpClientService : HttpClientService
     ) {
   }
@@ -27,6 +29,10 @@ export class DetailComponent implements OnInit {
         (err)  => { console.error('error = ' + err) },
       )
     })
+  }
+
+  getFullPath(imagePath:string) {
+    return this.common.getFullPath(imagePath)
   }
 
 }
