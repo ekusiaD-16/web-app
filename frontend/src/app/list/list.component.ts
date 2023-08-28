@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-
-import { images } from '../images';
 import { HttpClientService } from '../service/http-client.service';
 
 import { Image } from '../Image'
@@ -12,16 +10,16 @@ import { Image } from '../Image'
 })
 export class ListComponent implements OnInit {
   
-  images = images
-  imagesFromBackend : Image[] = []
+  images : Image[] = []
 
   constructor(private httpClientServise : HttpClientService) {}
 
   ngOnInit(): void {
-    this.httpClientServise.getImages((response : Image[]) => {
-      this.imagesFromBackend = response
-      console.log(JSON.stringify(this.imagesFromBackend))
-    })
+    const imagesObservable = this.httpClientServise.getImages()
+    imagesObservable.subscribe(
+      (data) => { this.images = data },
+      (err)  => { console.error('error = ' + err) }
+    )
   }
 
   getFullPath(imagePath:string) {
