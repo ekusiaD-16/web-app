@@ -45,7 +45,7 @@ export class ImgImportComponent {
       }
       const registerObservable =  this.httpClientService.sendImage(imageJson)
       registerObservable.subscribe(
-        (data) => { this.route.navigate(['list']) },
+        (data) => { window.location.reload() },
         (err)  => { console.error(err)  },
       )
     }
