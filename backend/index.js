@@ -1,6 +1,7 @@
 const express = require('express')
 const mongoose = require('mongoose')
 const path = require('path')
+const bodyParser = require('body-parser')
 
 const config = require('./config/dev')
 const Db = require('./db')
@@ -17,6 +18,8 @@ mongoose.connect(config.DB_URI).then(
 
 const app = express()
 
+app.use(bodyParser.urlencoded({extended: true}))
+app.use(bodyParser.json())
 
 app.use('/api/v1/import', importRoutes)
 app.use('/api/v1/images', imagesRoutes)
