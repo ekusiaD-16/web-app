@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { images } from '../images';
+
+import { HttpClientService } from '../service/http-client.service';
 
 @Component({
   selector: 'app-detail',
@@ -10,19 +11,21 @@ import { images } from '../images';
 export class DetailComponent implements OnInit {
 
   image : any
-  name : string = ''
+  id : string = ''
 
-  constructor(private acRoute : ActivatedRoute) {
+  constructor(private acRoute : ActivatedRoute,
+              private httpClientService : HttpClientService
+    ) {
   }
 
   ngOnInit() {
     this.acRoute.paramMap.subscribe(params => {
-      this.name = params.get('imageId')!
-      images.forEach(image => {
-        if(image.name == this.name) {
-          this.image = image
-        }
-      })
+      this.id = params.get('imageId')!
+      const imageObservable = this.httpClientService.getImageById(this.id)
+      imageObservable.subscribe(
+        (data) => { console.log(data); this.image = data },
+        (err)  => { console.error('error = ' + err) },
+      )
     })
   }
 
