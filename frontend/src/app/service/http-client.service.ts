@@ -7,16 +7,14 @@ import { Observable } from 'rxjs';
 })
 export class HttpClientService {
 
-  host : string = 'http://localhost:4200/app'
-
   constructor(private httpClient : HttpClient) { }
 
   getImages() : Observable<any> {
-    return this.httpClient.get(this.host + '/api/v1/images')
+    return this.httpClient.get('/api/v1/images')
   }
 
   getImageById(imageId:string) {
-    return this.httpClient.get(this.host + '/api/v1/images/' + imageId)
+    return this.httpClient.get('/api/v1/images/' + imageId)
   }
 
 }
