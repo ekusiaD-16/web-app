@@ -12,6 +12,8 @@ import { ImgImportComponent } from './img-import/img-import.component';
 import { ImgExportComponent } from './img-export/img-export.component';
 import { DetailComponent } from './detail/detail.component';
 import { ListComponent } from './list/list.component';
+import { HttpClientModule } from '@angular/common/http';
+import { HttpClientService } from './service/http-client.service';
 
 @NgModule({
   declarations: [
@@ -29,8 +31,11 @@ import { ListComponent } from './list/list.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
   ],
-  providers: [],
+  providers: [
+    HttpClientService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
