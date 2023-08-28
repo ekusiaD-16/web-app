@@ -10,6 +10,10 @@ import { ZoomComponent } from './zoom/zoom.component';
 import { RotateComponent } from './rotate/rotate.component';
 import { ImgImportComponent } from './img-import/img-import.component';
 import { ImgExportComponent } from './img-export/img-export.component';
+import { DetailComponent } from './detail/detail.component';
+import { ListComponent } from './list/list.component';
+import { HttpClientModule } from '@angular/common/http';
+import { HttpClientService } from './service/http-client.service';
 
 @NgModule({
   declarations: [
@@ -20,13 +24,18 @@ import { ImgExportComponent } from './img-export/img-export.component';
     ZoomComponent,
     RotateComponent,
     ImgImportComponent,
-    ImgExportComponent
+    ImgExportComponent,
+    DetailComponent,
+    ListComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
   ],
-  providers: [],
+  providers: [
+    HttpClientService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

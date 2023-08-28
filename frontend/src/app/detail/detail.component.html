@@ -1,0 +1,13 @@
+ <div *ngIf="image">
+ <table>
+    <td class="editor">
+      <app-editor></app-editor>
+    </td>
+    <td class="canvas">
+      <div>{{image.name}}</div>
+      <div>{{getFullPath(image.path)}}</div>
+      <div>{{image.state}}</div>
+      <app-canvas imagePath={{getFullPath(image.path)}}></app-canvas>
+    </td>
+  </table>
+</div>

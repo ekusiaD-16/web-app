@@ -6,7 +6,9 @@ const mongoose = require('mongoose')
 const imageSchema = mongoose.Schema({
     // id  : ObjectId,
     name : { type : String, required : true }, 
-    state : String
+    path : String,
+    state : String,
+
 })
 
 module.exports = mongoose.model('Image', imageSchema)
