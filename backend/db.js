@@ -7,17 +7,20 @@ class Db {
             {
                 name : 'testA',
                 path : 'testA.png',
-                state : 'raw'
+                state : 'raw',
+                src  : 'AAA',
             },
             {
                 name : 'testB',
                 path : 'testB.png',
-                state : 'processed'
+                state : 'processed',
+                src  : 'BBBBBBBB',
             },
             {
                 name : 'testC',
                 path : 'testC.png',
-                state : 'processed'
+                state : 'processed',
+                src  : 'CCCCCCCCCCCCC',
             }
         ]
     }

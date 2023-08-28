@@ -6,7 +6,7 @@ const bodyParser = require('body-parser')
 const config = require('./config/dev')
 const Db = require('./db')
 
-const importRoutes = require('./routes/import')
+const registerRoutes = require('./routes/register')
 const imagesRoutes = require('./routes/images')
 
 mongoose.connect(config.DB_URI).then(
@@ -21,7 +21,7 @@ const app = express()
 app.use(bodyParser.urlencoded({extended: true}))
 app.use(bodyParser.json())
 
-app.use('/api/v1/import', importRoutes)
+app.use('/api/v1/register', registerRoutes)
 app.use('/api/v1/images', imagesRoutes)
 
 const appPath = path.join( __dirname, '..', 'frontend', 'dist', 'frontend')
