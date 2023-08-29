@@ -1,4 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { HttpClientService } from '../service/http-client.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-zoom',
@@ -12,10 +14,11 @@ export class ZoomComponent implements OnInit {
   zoomRate : number = 0
   message  : string = ''
 
-  constructor() { }
+  constructor(
+    private httpClientService : HttpClientService,
+    private routes : Router) { }
 
   ngOnInit(): void {
-    console.log(this.imageId,this.zoomRate)
   }
 
   onClick() {
@@ -28,6 +31,11 @@ export class ZoomComponent implements OnInit {
       }
       console.log(JSON.stringify(editorJson))
       // call httpService
+      const zoomObservable = this.httpClientService.sendZoom(editorJson)
+      zoomObservable.subscribe(
+        (data) => { this.routes.navigate(['list']) },
+        (err) => { this.message = err },
+      )
     }
     catch(err) {
       this.message = `${err}`

@@ -22,7 +22,7 @@ export class HttpClientService {
   }
 
   sendZoom(editorJson:object) {
-    return this.httpClient.post('/api/v1/zoom/', editorJson)
+    return this.httpClient.post('/api/v1/editor/zoom/', editorJson)
   }
 
 }
