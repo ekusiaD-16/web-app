@@ -7,13 +7,13 @@ router.get('', function(req, res) {
     res.json({'register' : true})
 })
 
-router.post('', function(req, res) {
+router.post('', function(req, res, next) {
     const newImage = new Image(req.body)
     Image.create(newImage).then( () => {
         res.json({ 'created' : true })
     })
     .catch((err) => {
-        res.json({ 'error' : 'alredy exist' })
+        next(err)
         console.log(err)
     })
     

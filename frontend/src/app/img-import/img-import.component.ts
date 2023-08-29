@@ -46,7 +46,9 @@ export class ImgImportComponent {
       const registerObservable =  this.httpClientService.sendImage(imageJson)
       registerObservable.subscribe(
         (data) => { window.location.reload() },
-        (err)  => { console.error(err)  },
+        (err)  => {
+          alert('this image already exist!')
+        },
       )
     }
   }
