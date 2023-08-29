@@ -36,7 +36,7 @@ export class ZoomComponent implements OnInit {
   }
 
   validZoomRate(zoomRate:number) {
-    if(zoomRate > 0 && zoomRate <= 1.0) { return zoomRate }
+    if(zoomRate > 0) { return zoomRate }
     else { throw new Error("invalid number") }
   }
 }
