@@ -6,5 +6,5 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./canvas.component.scss']
 })
 export class CanvasComponent {
-  @Input() imagePath : string = 'imagePath'
+  @Input() imageSrc : string = 'imagePath'
 }
