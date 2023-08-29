@@ -1,14 +1,10 @@
 const mongoose = require('mongoose')
 
-// const Schema = mongoose.Schema
-// const ObjectId = Schema.ObjectId
-
 const imageSchema = mongoose.Schema({
-    // id  : ObjectId,
-    name : { type : String, required : true }, 
+    name : { type : String, required : true, unique : true }, 
     path : String,
     state : String,
-
+    src  : String,
 })
 
 module.exports = mongoose.model('Image', imageSchema)

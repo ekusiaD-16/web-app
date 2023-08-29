@@ -3,7 +3,8 @@
         <div *ngFor="let image of images" class="col-sm">
             <div class="card" style="width: 18rem;">
                 <a [routerLink]="['/detail',image._id]">
-                    <img src={{getFullPath(image.path)}} class="card-img-top" alt="...">
+                    <!-- <img src={{getFullPath(image.path)}} class="card-img-top" alt="..."> -->
+                    <img src={{image.src}} class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">{{image.name}}</h5>
                         <p class="card-text">{{image.state}}</p>

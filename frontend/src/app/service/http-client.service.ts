@@ -17,4 +17,8 @@ export class HttpClientService {
     return this.httpClient.get('/api/v1/images/' + imageId)
   }
 
+  sendImage(imageJson:object) {
+    return this.httpClient.post('/api/v1/register/', imageJson)
+  }
+
 }
