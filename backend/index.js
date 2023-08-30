@@ -16,7 +16,10 @@ mongoose.connect(config.DB_URI).then(
         const db = new Db()
         db.initDb()
     },
-    (err) => { throw new Error.DbError('Can not connect DB', err) }
+    (err) => {
+        const dbError =  new Error.DbError('Can not connect DB', err)
+        console.error(dbError)
+    }
 )
 
 const app = express()
