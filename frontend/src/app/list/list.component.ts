@@ -3,6 +3,8 @@ import { HttpClientService } from '../service/http-client.service';
 
 import { Image } from '../Image'
 import { CommonService } from '../service/common.service';
+import { ConnectError } from '../error'
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-list',
@@ -22,7 +24,11 @@ export class ListComponent implements OnInit {
     const imagesObservable = this.httpClientServise.getImages()
     imagesObservable.subscribe(
       (data) => { this.images = data },
-      (err)  => { console.error('error = ' + err) }
+      (err)  => {
+        if(err.status === 500 ) {
+          console.error(new ConnectError('can not connect backend\n  '+err.error.message, err))
+        }
+      }
     )
   }
 
