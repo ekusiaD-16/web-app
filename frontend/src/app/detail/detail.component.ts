@@ -28,11 +28,14 @@ export class DetailComponent implements OnInit {
       imageObservable.subscribe(
         (data) => { console.log(data); this.image = data },
         (err)  => {
-          if(err.status === 404 ) {
+          if(err.status === 404) {
             console.error(err)
           }
-          if(err.status === 500 ) {
-            console.error(new ConnectError('can not connect backend\n  '+err.error.message, err))
+          if(err.status === 500) {
+            console.error(err, JSON.stringify(err.error))
+          }
+          if(err.status === 504) {
+            console.error(new ConnectError('can not connect backend', err))
           }
         },
       )

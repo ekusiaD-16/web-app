@@ -25,8 +25,11 @@ export class ListComponent implements OnInit {
     imagesObservable.subscribe(
       (data) => { this.images = data },
       (err)  => {
-        if(err.status === 500 ) {
-          console.error(new ConnectError('can not connect backend\n  '+err.error.message, err))
+        if(err.status === 500) {
+          console.error(err, JSON.stringify(err.error))
+        }
+        if(err.status === 504) {
+          console.error(new ConnectError('can not connect backend', err))
         }
       }
     )
