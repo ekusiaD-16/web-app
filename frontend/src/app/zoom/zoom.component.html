@@ -1,1 +1,5 @@
-<p>zoom works!</p>
+<input type="number" step="0.01" [(ngModel)]="zoomRate">
+<div *ngIf="message">
+    <p class="error">{{message}}</p>
+</div>
+<button type="button" (click)="onClick()">excute</button>

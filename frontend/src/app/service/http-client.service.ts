@@ -21,4 +21,8 @@ export class HttpClientService {
     return this.httpClient.post('/api/v1/register/', imageJson)
   }
 
+  sendZoom(editorJson:object) {
+    return this.httpClient.post('/api/v1/editor/zoom/', editorJson)
+  }
+
 }

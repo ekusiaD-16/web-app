@@ -8,6 +8,7 @@ const Db = require('./db')
 
 const registerRoutes = require('./routes/register')
 const imagesRoutes = require('./routes/images')
+const editorRoutes = require('./routes/editor')
 
 mongoose.connect(config.DB_URI).then(
     () => {
@@ -23,6 +24,7 @@ app.use(bodyParser.json({limit: '50mb'}))
 
 app.use('/api/v1/register', registerRoutes)
 app.use('/api/v1/images', imagesRoutes)
+app.use('/api/v1/editor', editorRoutes)
 
 const appPath = path.join( __dirname, '..', 'frontend', 'dist', 'frontend')
 app.use(express.static(appPath))
