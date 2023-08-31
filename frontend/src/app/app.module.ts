@@ -15,6 +15,7 @@ import { ImgExportComponent } from './img-export/img-export.component';
 import { DetailComponent } from './detail/detail.component';
 import { ListComponent } from './list/list.component';
 import { HttpClientService } from './service/http-client.service';
+import { DeleteComponent } from './delete/delete.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { HttpClientService } from './service/http-client.service';
     ImgImportComponent,
     ImgExportComponent,
     DetailComponent,
-    ListComponent
+    ListComponent,
+    DeleteComponent
   ],
   imports: [
     BrowserModule,

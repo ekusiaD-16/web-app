@@ -11,7 +11,7 @@ router.get('', function(req, res) {
 router.post('', function(req, res) {
     const imageId = req.body.imageId || ''
     if(!imageId) {
-        const deleteError = new Error.DeleteError('imageId is none', err)
+        const deleteError = new Error.DeleteError('imageId is none')
         res.status(500).send({ name : deleteError.name , message : deleteError.message })
     }
     Image.findById(imageId).then(
