@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 
 import { HttpClientService } from '../service/http-client.service';
 import { CommonService } from '../service/common.service';
+import { ConnectError } from '../error';
 
 @Component({
   selector: 'app-detail',
@@ -26,7 +27,17 @@ export class DetailComponent implements OnInit {
       const imageObservable = this.httpClientService.getImageById(this.id)
       imageObservable.subscribe(
         (data) => { console.log(data); this.image = data },
-        (err)  => { console.error('error = ' + err) },
+        (err)  => {
+          if(err.status === 404) {
+            console.error(err)
+          }
+          if(err.status === 500) {
+            console.error(err, JSON.stringify(err.error))
+          }
+          if(err.status === 504) {
+            console.error(new ConnectError('can not connect backend', err))
+          }
+        },
       )
     })
   }

@@ -7,7 +7,7 @@
             </button>
         </div>
         <div class="modal-body">
-            <input type="file" accept="image/*" (change)="onChangeFileInput($event)">
+            <input type="file" accept="image/png, image/jpeg" (change)="onChangeFileInput($event)">
             <img src={{imageSrc}}>
         </div>
         <div class="modal-footer">
