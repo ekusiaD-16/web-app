@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ImgExportComponent } from './img-export.component';
+import { ImgDonwloadComponent } from './img-donwload.component';
 
-describe('ImgExportComponent', () => {
-  let component: ImgExportComponent;
-  let fixture: ComponentFixture<ImgExportComponent>;
+describe('ImgDonwloadComponent', () => {
+  let component: ImgDonwloadComponent;
+  let fixture: ComponentFixture<ImgDonwloadComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ImgExportComponent ]
+      declarations: [ ImgDonwloadComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(ImgExportComponent);
+    fixture = TestBed.createComponent(ImgDonwloadComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

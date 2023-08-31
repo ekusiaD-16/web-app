@@ -11,7 +11,7 @@ import { EditorComponent } from './editor/editor.component';
 import { ZoomComponent } from './zoom/zoom.component';
 import { RotateComponent } from './rotate/rotate.component';
 import { ImgImportComponent } from './img-import/img-import.component';
-import { ImgExportComponent } from './img-export/img-export.component';
+import { ImgDonwloadComponent } from './img-donwload/img-donwload.component';
 import { DetailComponent } from './detail/detail.component';
 import { ListComponent } from './list/list.component';
 import { HttpClientService } from './service/http-client.service';
@@ -26,7 +26,7 @@ import { DeleteComponent } from './delete/delete.component';
     ZoomComponent,
     RotateComponent,
     ImgImportComponent,
-    ImgExportComponent,
+    ImgDonwloadComponent,
     DetailComponent,
     ListComponent,
     DeleteComponent
