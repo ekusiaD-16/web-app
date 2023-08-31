@@ -48,10 +48,21 @@ class DeleteError extends Error {
       }
 }
 
+class EditError extends Error {
+    static {
+        this.prototype.name = 'EditError'
+    }
+    constructor(message, options) {
+        super(message, options)
+        Error.captureStackTrace(this, EditError)
+      }
+}
+
 module.exports = { 
     DbError,
     ImageNotFoundError,
     IllegalImageError,
     RegisterError,
     DeleteError,
+    EditError,
 }
