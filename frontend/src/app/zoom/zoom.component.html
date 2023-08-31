@@ -1,5 +1,14 @@
-<input type="number" step="0.01" [(ngModel)]="zoomRate">
-<div *ngIf="message">
-    <p class="error">{{message}}</p>
+<div class="card">
+    <h3>拡大率</h3>
+    <table>
+        <td>
+            <input type="number" step="0.01" [(ngModel)]="zoomRate">
+        </td>
+        <td>
+            <button type="button" (click)="onClick()">excute</button>
+        </td>
+    </table>
+    <div *ngIf="message">
+        <p class="error">{{message}}</p>
+    </div>
 </div>
-<button type="button" (click)="onClick()">excute</button>

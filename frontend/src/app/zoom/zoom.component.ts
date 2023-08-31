@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { HttpClientService } from '../service/http-client.service';
 import { Router } from '@angular/router';
+import { ConnectError, InvalidError } from '../error';
 
 @Component({
   selector: 'app-zoom',
@@ -29,22 +30,24 @@ export class ZoomComponent implements OnInit {
         imageId : this.imageId,
         zoomRate: this.zoomRate
       }
-      console.log(JSON.stringify(editorJson))
-      // call httpService
+      // call httpClientService
       const zoomObservable = this.httpClientService.sendZoom(editorJson)
       zoomObservable.subscribe(
         (data) => { this.routes.navigate(['list']) },
-        (err) => { this.message = err },
+        (err)  => {
+          const connectError = new ConnectError('Can not connect backend', err)
+          this.message = connectError.message
+        },
       )
     }
     catch(err) {
       this.message = `${err}`
-      console.error(err)
+      // console.error(err)
     }
   }
 
   validZoomRate(zoomRate:number) {
     if(zoomRate > 0) { return zoomRate }
-    else { throw new Error("invalid number") }
+    else { throw new InvalidError("invalid number", Error()) }
   }
 }
