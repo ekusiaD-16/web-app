@@ -13,12 +13,12 @@ router.post('/zoom', function(req, res) {
         const imageId = req.body.imageId
         const zoomRate = req.body.zoomRate
         Image.findById(imageId).then(
-            (image) => {
+            (foundImage) => {
                 if(!foundImage) {
                     throw new Error.ImageNotFoundError('Image not found target id:'+imageId)
                 }
                 // zoom処理を実行
-                const processedImage = zoom(image,zoomRate)
+                const processedImage = zoom(foundImage,zoomRate)
 
                 // 処理後ImageをDBへ追加
                 const result = addImageToDb(processedImage)
