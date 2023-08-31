@@ -21,6 +21,10 @@ export class HttpClientService {
     return this.httpClient.post('/api/v1/register/', imageJson)
   }
 
+  deleteImage(imageJson:object) {
+    return this.httpClient.post('api/v1/delete', imageJson)
+  }
+
   sendZoom(editorJson:object) {
     return this.httpClient.post('/api/v1/editor/zoom/', editorJson)
   }
