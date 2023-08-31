@@ -24,6 +24,9 @@ router.post('/zoom', function(req, res) {
                 const result = addImageToDb(processedImage)
                 // 処理後Imageをresponseとして返す
                 res.json(processedImage)
+            },
+            (err) => {
+                throw new Error.ImageNotFoundError('Image not found target id:'+imageId, err)
             }
         )
         .catch( (err) => {
