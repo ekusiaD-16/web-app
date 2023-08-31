@@ -17,7 +17,7 @@ mongoose.connect(config.DB_URI).then(
         db.initDb()
     },
     (err) => {
-        const dbError =  new Error.DbError('Can not connect DB', err)
+        const dbError = new Error.DbError('Can not connect DB', err)
         console.error(dbError)
     }
 )

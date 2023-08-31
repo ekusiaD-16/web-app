@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { HttpClientService } from '../service/http-client.service';
+import { ConnectError, InvalidError } from '../error';
 
 @Component({
   selector: 'app-img-import',
@@ -36,21 +37,34 @@ export class ImgImportComponent {
   }
 
   onClickImport(event:any) {
-    if(this.file && this.imageSrc) {
-      const imageJson = {
-        name : this.getBaseName(this.file.name),
-        path : this.file.name,
-        state: 'raw',
-        src  : this.imageSrc,
-      }
-      const registerObservable =  this.httpClientService.sendImage(imageJson)
-      registerObservable.subscribe(
-        (data) => { window.location.reload() },
-        (err)  => {
-          alert('this image already exist!')
-        },
-      )
+    if(this.validFile()) {
+        const imageJson = {
+          name : this.getBaseName(this.file.name),
+          path : this.file.name,
+          state: 'raw',
+          src  : this.imageSrc,
+        }
+        const registerObservable =  this.httpClientService.sendImage(imageJson)
+        registerObservable.subscribe(
+          (data) => { window.location.reload() },
+          (err)  => {
+            if(err.status === 500) {
+              console.error(err, JSON.stringify(err.error))
+            }
+            if(err.status === 504) {
+              console.error(new ConnectError('can not connect backend', err))
+            }
+          },
+        )
     }
+    else {
+      let msg = ''
+      if(!this.file) { msg = 'Not select file' }
+      else           { msg = 'This file is invalid file extension' }
+      console.error(new InvalidError(msg ,Error()))
+    }
+    this.file = null
+    this.imageSrc = ''
   }
 
   onClickCancel(event:any) {
@@ -58,8 +72,21 @@ export class ImgImportComponent {
     this.imageSrc = ''
   }
 
-  getBaseName (filename:string) {
+  getBaseName(filename:string) {
     return filename.split('.').shift()
+  }
+
+  getExtensionFrom(filename:string) {
+    return filename.split('.').pop() || ''
+  }
+
+  validFile() {
+    if(this.file && this.imageSrc) { 
+      const extension = this.getExtensionFrom(this.file.name)
+      const vailidExtension = [ 'png', 'jpg', 'jpeg' ]
+      return vailidExtension.includes(extension)
+    } 
+    else { return false }
   }
 
 }
