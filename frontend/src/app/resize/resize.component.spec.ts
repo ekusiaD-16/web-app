@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ZoomComponent } from './zoom.component';
+import { ZoomComponent } from './resize.component';
 
 describe('ZoomComponent', () => {
   let component: ZoomComponent;

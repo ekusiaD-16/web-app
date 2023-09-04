@@ -25,8 +25,12 @@ export class HttpClientService {
     return this.httpClient.post('api/v1/delete', imageJson)
   }
 
-  sendZoom(editorJson:object) {
-    return this.httpClient.post('/api/v1/editor/zoom/', editorJson)
+  sendResize(editorJson:object) {
+    return this.httpClient.post('/api/v1/editor/resize/', editorJson)
+  }
+
+  sendRotate(editorJson:object) {
+    return this.httpClient.post('/api/v1/editor/rotate/', editorJson)
   }
 
   sendToGray(editorJson:object) {

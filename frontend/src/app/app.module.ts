@@ -8,7 +8,7 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { CanvasComponent } from './canvas/canvas.component';
 import { EditorComponent } from './editor/editor.component';
-import { ZoomComponent } from './zoom/zoom.component';
+import { resizeComponent } from './resize/resize.component';
 import { RotateComponent } from './rotate/rotate.component';
 import { ImgImportComponent } from './img-import/img-import.component';
 import { ImgDonwloadComponent } from './img-donwload/img-donwload.component';
@@ -24,7 +24,7 @@ import { ToGrayComponent } from './to-gray/to-gray.component';
     HeaderComponent,
     CanvasComponent,
     EditorComponent,
-    ZoomComponent,
+    resizeComponent,
     RotateComponent,
     ImgImportComponent,
     ImgDonwloadComponent,

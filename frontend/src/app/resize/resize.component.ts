@@ -3,15 +3,15 @@ import { HttpClientService } from '../service/http-client.service';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-zoom',
-  templateUrl: './zoom.component.html',
-  styleUrls: ['./zoom.component.scss']
+  selector: 'app-resize',
+  templateUrl: './resize.component.html',
+  styleUrls: ['./resize.component.scss']
 })
-export class ZoomComponent implements OnInit {
+export class resizeComponent implements OnInit {
 
   @Input()
   imageId : string = ''
-  zoomRate : number = 0
+  resizeRate : number = 0
   message  : string = ''
 
   constructor(
@@ -24,15 +24,15 @@ export class ZoomComponent implements OnInit {
   onClick() {
     try {
       this.message = ''
-      this.zoomRate = this.validZoomRate(this.zoomRate)
+      this.resizeRate = this.validresizeRate(this.resizeRate)
       const editorJson = {
         imageId : this.imageId,
-        zoomRate: this.zoomRate
+        resizeRate: this.resizeRate
       }
       console.log(JSON.stringify(editorJson))
       // call httpService
-      const zoomObservable = this.httpClientService.sendZoom(editorJson)
-      zoomObservable.subscribe(
+      const resizeObservable = this.httpClientService.sendResize(editorJson)
+      resizeObservable.subscribe(
         (data) => { this.routes.navigate(['list']) },
         (err) => { this.message = err },
       )
@@ -43,8 +43,8 @@ export class ZoomComponent implements OnInit {
     }
   }
 
-  validZoomRate(zoomRate:number) {
-    if(zoomRate > 0) { return zoomRate }
+  validresizeRate(resizeRate:number) {
+    if(resizeRate > 0) { return resizeRate }
     else { throw new Error("invalid number") }
   }
 }

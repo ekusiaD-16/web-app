@@ -1,1 +1,5 @@
-<p>rotate works!</p>
+<input type="number" [(ngModel)]="angle">
+<div *ngIf="message">
+    <p class="error">{{message}}</p>
+</div>
+<button type="button" (click)="onClick()">excute</button>
