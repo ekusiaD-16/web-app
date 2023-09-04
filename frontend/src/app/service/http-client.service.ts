@@ -29,4 +29,8 @@ export class HttpClientService {
     return this.httpClient.post('/api/v1/editor/zoom/', editorJson)
   }
 
+  sendToGray(editorJson:object) {
+    return this.httpClient.post('/api/v1/editor/toGray/', editorJson)
+  }
+
 }
