@@ -37,4 +37,8 @@ export class HttpClientService {
     return this.httpClient.post('/api/v1/editor/toGray/', editorJson)
   }
 
+  sendTrim(editorJson:object) {
+    return this.httpClient.post('/api/v1/editor/trim/', editorJson)
+  }
+
 }

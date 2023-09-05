@@ -238,6 +238,68 @@ router.post('/rotate', function(req, res) {
     }}
 )
 
+router.post('/trim', function(req, res) {
+    if(!req) {
+        const editError = new Error.EditError('request is null')
+        res.status(500).send({ name : editError.name , message : editError.message })
+    }
+    else {
+        //DBから該当Imageを取得
+        const imageId = req.body.imageId
+        const pos = req.body.pos
+        console.log('POS:',pos)
+        Image.findById(imageId).then(
+            (foundImage) => {
+                if(!foundImage) {
+                    throw new Error.ImageNotFoundError('Image not found target id:'+imageId)
+                }
+                else {
+                    // toGray処理を実行
+                    const url = 'http://127.0.0.1:5000/process/trim'
+                    const data = JSON.stringify( { 'image' : foundImage , 'params' : { 'pos':pos } })
+                    fetch(url, {
+                        method:'POST',
+                        body:data,
+                        headers:{"Content-Type": "application/json"}
+                    }
+                    ).then(
+                        (response) => {
+                            console.log('recieved response',response)
+                            res.json({'result':true})
+                        },
+                        (err) => {
+                            console.error(err)
+                            const editError = new Error.EditError('request is null')
+                            res.status(500).send({ name : editError.name , message : editError.message })
+                        }
+                    )
+                }
+            },
+            (err) => {
+                throw new Error.ImageNotFoundError('Image not found target id:'+imageId, err)
+            },
+        )
+        .catch( (err) => {
+            console.error(err)
+            if(err instanceof Error.ImageNotFoundError) {
+                res.status(404).send({ name : err.name , message : err.message })
+            }
+            if(err instanceof Error.IllegalImageError) {
+                res.status(500).send({ name : err.name , message : err.message })
+            }
+            if(err instanceof Error.RegisterError) {
+                res.status(500).send({ name : err.name , message : err.message })
+            }
+            if(err instanceof Error.EditError) {
+                res.status(500).send({ name : err.name , message : err.message })
+            }
+            else {
+                res.status(500).send({ name : 'UnknownError' , message : 'samething happen' })
+            }
+        } )
+    }}
+)
+
 function zoom(image, zoomRate, newName) {
     // TODO OpenCV.js で処理
     const base = newName || image.name + '_' + 'zoom' + '_' + zoomRate

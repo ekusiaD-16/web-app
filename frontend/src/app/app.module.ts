@@ -17,6 +17,7 @@ import { ListComponent } from './list/list.component';
 import { HttpClientService } from './service/http-client.service';
 import { DeleteComponent } from './delete/delete.component';
 import { ToGrayComponent } from './to-gray/to-gray.component';
+import { TrimComponent } from './trim/trim.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { ToGrayComponent } from './to-gray/to-gray.component';
     DetailComponent,
     ListComponent,
     DeleteComponent,
-    ToGrayComponent
+    ToGrayComponent,
+    TrimComponent
   ],
   imports: [
     BrowserModule,

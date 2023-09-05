@@ -1,0 +1,25 @@
+
+<table>
+    <tr>
+        <td>top : </td>
+        <td><input type="number"  [(ngModel)]="top"></td>
+    </tr>
+    <tr>
+        <td>bottom : </td>
+        <td><input type="number"  [(ngModel)]="bottom"></td>
+    </tr>
+    <tr>
+        <td>left : </td>
+        <td><input type="number"  [(ngModel)]="left"></td>
+    </tr>
+    <tr>
+        <td>right : </td>
+        <td><input type="number"  [(ngModel)]="right"></td>
+    </tr>
+</table>
+
+<div *ngIf="message">
+    <p class="error">{{message}}</p>
+</div>
+
+<button type="button" (click)="onClick()">excute</button>
