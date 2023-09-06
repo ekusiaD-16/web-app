@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ZoomComponent } from './resize.component';
+import { ResizeComponent } from './resize.component';
 
-describe('ZoomComponent', () => {
-  let component: ZoomComponent;
-  let fixture: ComponentFixture<ZoomComponent>;
+describe('ResizeComponent', () => {
+  let component: ResizeComponent;
+  let fixture: ComponentFixture<ResizeComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ZoomComponent ]
+      declarations: [ ResizeComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(ZoomComponent);
+    fixture = TestBed.createComponent(ResizeComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
   templateUrl: './resize.component.html',
   styleUrls: ['./resize.component.scss']
 })
-export class resizeComponent implements OnInit {
+export class ResizeComponent implements OnInit {
 
   @Input()
   imageId : string = ''

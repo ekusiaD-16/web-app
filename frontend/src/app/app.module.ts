@@ -8,7 +8,7 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { CanvasComponent } from './canvas/canvas.component';
 import { EditorComponent } from './editor/editor.component';
-import { resizeComponent } from './resize/resize.component';
+import { ResizeComponent } from './resize/resize.component';
 import { RotateComponent } from './rotate/rotate.component';
 import { ImgImportComponent } from './img-import/img-import.component';
 import { ImgDonwloadComponent } from './img-donwload/img-donwload.component';
@@ -25,7 +25,7 @@ import { TrimComponent } from './trim/trim.component';
     HeaderComponent,
     CanvasComponent,
     EditorComponent,
-    resizeComponent,
+    ResizeComponent,
     RotateComponent,
     ImgImportComponent,
     ImgDonwloadComponent,
