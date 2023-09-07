@@ -80,8 +80,17 @@ router.post('/toGray', function(req, res) {
                     }
                     ).then(
                         (response) => {
-                            console.log('recieved response',response)
-                            res.json({'result':true})
+                            response.json().then(
+                                (data) => {
+                                    console.log('get response')
+                                    // 処理後ImageをDBへ追加
+                                    const result = addImageToDb(data.image)
+                                    res.json({'result':result})
+                                },
+                                (err) => {
+                                    console.error('response.json() error')
+                                }
+                            )
                         },
                         (err) => {
                             console.error(err)
@@ -141,8 +150,17 @@ router.post('/resize', function(req, res) {
                     }
                     ).then(
                         (response) => {
-                            console.log('recieved response',response)
-                            res.json({'result':true})
+                            response.json().then(
+                                (data) => {
+                                    console.log('get response')
+                                    // 処理後ImageをDBへ追加
+                                    const result = addImageToDb(data.image)
+                                    res.json({'result':result})
+                                },
+                                (err) => {
+                                    console.error('response.json() error')
+                                }
+                            )
                         },
                         (err) => {
                             console.error(err)
@@ -202,8 +220,17 @@ router.post('/rotate', function(req, res) {
                     }
                     ).then(
                         (response) => {
-                            console.log('recieved response',response)
-                            res.json({'result':true})
+                            response.json().then(
+                                (data) => {
+                                    console.log('get response')
+                                    // 処理後ImageをDBへ追加
+                                    const result = addImageToDb(data.image)
+                                    res.json({'result':result})
+                                },
+                                (err) => {
+                                    console.error('response.json() error')
+                                }
+                            )
                         },
                         (err) => {
                             console.error(err)
@@ -264,8 +291,17 @@ router.post('/trim', function(req, res) {
                     }
                     ).then(
                         (response) => {
-                            console.log('recieved response',response)
-                            res.json({'result':true})
+                            response.json().then(
+                                (data) => {
+                                    console.log('get response')
+                                    // 処理後ImageをDBへ追加
+                                    const result = addImageToDb(data.image)
+                                    res.json({'result':result})
+                                },
+                                (err) => {
+                                    console.error('response.json() error')
+                                }
+                            )
                         },
                         (err) => {
                             console.error(err)
