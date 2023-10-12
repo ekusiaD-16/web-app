@@ -21,4 +21,24 @@ export class HttpClientService {
     return this.httpClient.post('/api/v1/register/', imageJson)
   }
 
+  deleteImage(imageJson:object) {
+    return this.httpClient.post('api/v1/delete', imageJson)
+  }
+
+  sendResize(editorJson:object) {
+    return this.httpClient.post('/api/v1/editor/resize/', editorJson)
+  }
+
+  sendRotate(editorJson:object) {
+    return this.httpClient.post('/api/v1/editor/rotate/', editorJson)
+  }
+
+  sendToGray(editorJson:object) {
+    return this.httpClient.post('/api/v1/editor/toGray/', editorJson)
+  }
+
+  sendTrim(editorJson:object) {
+    return this.httpClient.post('/api/v1/editor/trim/', editorJson)
+  }
+
 }

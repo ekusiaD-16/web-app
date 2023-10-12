@@ -1,13 +1,33 @@
  <div *ngIf="image">
  <table>
-    <td class="editor">
-      <app-editor></app-editor>
-    </td>
-    <td class="canvas">
-      <div>{{image.name}}</div>
-      <div>{{getFullPath(image.path)}}</div>
-      <div>{{image.state}}</div>
-      <app-canvas imageSrc={{image.src}}></app-canvas>
-    </td>
+    <tr>
+      <td rowspan="2" class="editor">
+        <app-editor [imageId]="image._id"></app-editor>
+      </td>
+      <td>
+        <table class="subtable">
+          <tr>
+          <td class="imageName"><h3>{{image.name}}</h3></td>
+          <td><p>{{image.state}}</p></td>
+          <td><button class="btn btn-primary" data-toggle="modal" data-target="#deleteModal">Delete</button></td>
+          <td><button class="btn btn-primary" data-toggle="modal" data-target="#downloadModal">Download</button></td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td class="canvas">
+        <app-canvas imageSrc={{image.src}}></app-canvas>
+      </td>
+    </tr>
   </table>
+
+  <!-- deleteModal -->
+  <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <app-delete [imageId]="image._id" [imageName]="image.name"></app-delete>
+  </div>
+  <!-- deleteModal -->
+  <div class="modal fade" id="downloadModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <app-img-donwload [imageName]="image.name" [imageSrc]="image.src"></app-img-donwload>
+  </div>
 </div>

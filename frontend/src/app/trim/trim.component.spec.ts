@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ZoomComponent } from './zoom.component';
+import { TrimComponent } from './trim.component';
 
-describe('ZoomComponent', () => {
-  let component: ZoomComponent;
-  let fixture: ComponentFixture<ZoomComponent>;
+describe('TrimComponent', () => {
+  let component: TrimComponent;
+  let fixture: ComponentFixture<TrimComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ZoomComponent ]
+      declarations: [ TrimComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(ZoomComponent);
+    fixture = TestBed.createComponent(TrimComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
