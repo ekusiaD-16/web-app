@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { HeaderComponent } from './header.component';
+import { ImgUploadComponent } from '../img-upload/img-upload.component';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('HeaderComponent', () => {
   let component: HeaderComponent;
@@ -8,7 +10,11 @@ describe('HeaderComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ HeaderComponent ]
+      imports: [ HttpClientTestingModule ],
+      declarations: [
+        HeaderComponent,
+        ImgUploadComponent,
+       ],
     })
     .compileComponents();
 

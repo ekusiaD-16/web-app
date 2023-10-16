@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ResizeComponent } from './resize.component';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { FormsModule } from '@angular/forms';
 
 describe('ResizeComponent', () => {
   let component: ResizeComponent;
@@ -8,6 +10,10 @@ describe('ResizeComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      imports: [
+        HttpClientTestingModule,
+        FormsModule,
+      ],
       declarations: [ ResizeComponent ]
     })
     .compileComponents();

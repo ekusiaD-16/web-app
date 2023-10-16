@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ImgDonwloadComponent } from './img-donwload.component';
+import { FormsModule } from '@angular/forms';
 
 describe('ImgDonwloadComponent', () => {
   let component: ImgDonwloadComponent;
@@ -8,6 +9,9 @@ describe('ImgDonwloadComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      imports: [
+        FormsModule,
+      ],
       declarations: [ ImgDonwloadComponent ]
     })
     .compileComponents();

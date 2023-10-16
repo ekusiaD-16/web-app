@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ToGrayComponent } from './to-gray.component';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('ToGrayComponent', () => {
   let component: ToGrayComponent;
@@ -8,6 +9,7 @@ describe('ToGrayComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      imports: [ HttpClientTestingModule ],
       declarations: [ ToGrayComponent ]
     })
     .compileComponents();
