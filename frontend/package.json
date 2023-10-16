@@ -7,7 +7,7 @@
     "start-dev": "ng serve --proxy-config proxy.conf.json",
     "build": "ng build --configuration production",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "jest --json --outputFile=jest-log.json"
   },
   "private": true,
   "dependencies": {
@@ -19,7 +19,9 @@
     "@angular/platform-browser": "^15.2.0",
     "@angular/platform-browser-dynamic": "^15.2.0",
     "@angular/router": "^15.2.0",
+    "@types/jest": "^29.5.5",
     "bootstrap": "^4.6.2",
+    "jest-preset-angular": "^13.1.2",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.12.0"
@@ -30,6 +32,7 @@
     "@angular/compiler-cli": "^15.2.0",
     "@types/jasmine": "~4.3.0",
     "jasmine-core": "~4.5.0",
+    "jest": "^29.7.0",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.1.0",
     "karma-coverage": "~2.2.0",
