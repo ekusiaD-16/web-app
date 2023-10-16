@@ -41,7 +41,7 @@ export class ImgUploadComponent {
         const imageJson = {
           name : this.getBaseName(this.file.name),
           path : this.file.name,
-          state: 'raw',
+          state: 0,
           src  : this.imageSrc,
         }
         const registerObservable =  this.httpClientService.sendImage(imageJson)
