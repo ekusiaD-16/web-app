@@ -5,11 +5,11 @@ import { HttpClientService } from '../service/http-client.service';
 import { ConnectError, InvalidError } from '../error';
 
 @Component({
-  selector: 'app-img-import',
-  templateUrl: './img-import.component.html',
-  styleUrls: ['./img-import.component.scss']
+  selector: 'app-img-upload',
+  templateUrl: './img-upload.component.html',
+  styleUrls: ['./img-upload.component.scss']
 })
-export class ImgImportComponent {
+export class ImgUploadComponent {
 
   file : any = null
   imageSrc : string = ''
@@ -36,7 +36,7 @@ export class ImgImportComponent {
     reader.readAsDataURL(this.file)
   }
 
-  onClickImport(event:any) {
+  onClickUpload(event:any) {
     if(this.validFile()) {
         const imageJson = {
           name : this.getBaseName(this.file.name),

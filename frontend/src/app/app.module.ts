@@ -10,7 +10,7 @@ import { CanvasComponent } from './canvas/canvas.component';
 import { EditorComponent } from './editor/editor.component';
 import { ResizeComponent } from './resize/resize.component';
 import { RotateComponent } from './rotate/rotate.component';
-import { ImgImportComponent } from './img-import/img-import.component';
+import { ImgUploadComponent } from './img-upload/img-upload.component';
 import { ImgDonwloadComponent } from './img-donwload/img-donwload.component';
 import { DetailComponent } from './detail/detail.component';
 import { ListComponent } from './list/list.component';
@@ -27,7 +27,7 @@ import { TrimComponent } from './trim/trim.component';
     EditorComponent,
     ResizeComponent,
     RotateComponent,
-    ImgImportComponent,
+    ImgUploadComponent,
     ImgDonwloadComponent,
     DetailComponent,
     ListComponent,
