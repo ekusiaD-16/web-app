@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { HttpClientService } from '../service/http-client.service';
 import { CommonService } from '../service/common.service';
 import { ConnectError } from '../error';
+import { STATES } from '../states';
 
 @Component({
   selector: 'app-detail',
@@ -44,6 +45,10 @@ export class DetailComponent implements OnInit {
 
   getFullPath(imagePath:string) {
     return this.common.getFullPath(imagePath)
+  }
+
+  getState(stateId:number) {
+    return STATES.states[stateId]
   }
 
 }

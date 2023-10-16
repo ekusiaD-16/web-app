@@ -5,6 +5,7 @@ import { Image } from '../Image'
 import { CommonService } from '../service/common.service';
 import { ConnectError } from '../error'
 import { HttpErrorResponse } from '@angular/common/http';
+import { STATES } from '../states'
 
 @Component({
   selector: 'app-list',
@@ -37,6 +38,10 @@ export class ListComponent implements OnInit {
 
   getFullPath(imagePath:string) {
     return this.common.getFullPath(imagePath)
+  }
+
+  getState(stateId:number) {
+    return STATES.states[stateId]
   }
 
 }
