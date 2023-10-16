@@ -2,16 +2,16 @@ export const images = [
     {
         name : 'testA',
         path : 'testA.png',
-        state : 'raw'
+        state : 0
     },
     {
         name : 'testB',
         path : 'testB.png',
-        state : 'processed'
+        state : 0
     },
     {
         name : 'testC',
         path : 'testC.png',
-        state : 'processed'
+        state : 0
     },
 ]
