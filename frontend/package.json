@@ -4,10 +4,10 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "start-dev": "ng serve --proxy-config proxy.conf.json",
+    "start-dev": "ng serve --proxy-config proxy.conf.json --host 0.0.0.0",
     "build": "ng build --configuration production",
     "watch": "ng build --watch --configuration development",
-    "test": "jest --json --outputFile=jest-log.json"
+    "test": "jest --json --outputFile=jest-log.json --silent"
   },
   "private": true,
   "dependencies": {
