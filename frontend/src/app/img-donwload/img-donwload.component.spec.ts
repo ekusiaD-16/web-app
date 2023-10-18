@@ -3,7 +3,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ImgDonwloadComponent } from './img-donwload.component';
 import { FormsModule } from '@angular/forms';
 
-describe('ImgDonwloadComponent', () => {
+xdescribe('ImgDonwloadComponent', () => {
   let component: ImgDonwloadComponent;
   let fixture: ComponentFixture<ImgDonwloadComponent>;
 

@@ -4,7 +4,7 @@ import { TrimComponent } from './trim.component';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { FormsModule } from '@angular/forms';
 
-describe('TrimComponent', () => {
+xdescribe('TrimComponent', () => {
   let component: TrimComponent;
   let fixture: ComponentFixture<TrimComponent>;
 

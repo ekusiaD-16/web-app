@@ -13,31 +13,31 @@ export class HttpClientService {
     return this.httpClient.get('/api/v1/images')
   }
 
-  getImageById(imageId:string) {
+  getImageById(imageId:string) : Observable<any> {
     return this.httpClient.get('/api/v1/images/' + imageId)
   }
 
-  sendImage(imageJson:object) {
+  sendImage(imageJson:object) : Observable<any> {
     return this.httpClient.post('/api/v1/register/', imageJson)
   }
 
-  deleteImage(imageJson:object) {
+  deleteImage(imageJson:object) : Observable<any> {
     return this.httpClient.post('api/v1/delete', imageJson)
   }
 
-  sendResize(editorJson:object) {
+  sendResize(editorJson:object) : Observable<any> {
     return this.httpClient.post('/api/v1/editor/resize/', editorJson)
   }
 
-  sendRotate(editorJson:object) {
+  sendRotate(editorJson:object) : Observable<any> {
     return this.httpClient.post('/api/v1/editor/rotate/', editorJson)
   }
 
-  sendToGray(editorJson:object) {
+  sendToGray(editorJson:object) : Observable<any> {
     return this.httpClient.post('/api/v1/editor/toGray/', editorJson)
   }
 
-  sendTrim(editorJson:object) {
+  sendTrim(editorJson:object) : Observable<any> {
     return this.httpClient.post('/api/v1/editor/trim/', editorJson)
   }
 

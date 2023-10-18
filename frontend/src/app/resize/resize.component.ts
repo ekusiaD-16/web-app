@@ -34,7 +34,7 @@ export class ResizeComponent implements OnInit {
       const resizeObservable = this.httpClientService.sendResize(editorJson)
       resizeObservable.subscribe(
         (data) => { this.routes.navigate(['list']) },
-        (err) => { this.message = err },
+        (err) => { this.message = `${err}` },
       )
     }
     catch(err) {

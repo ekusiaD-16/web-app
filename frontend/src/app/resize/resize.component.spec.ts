@@ -94,8 +94,9 @@ describe('ResizeComponent', () => {
   test('#異常系 httpClientServiceからerrorが返ってくる', fakeAsync( () => {
     // httpClientService.sendResize()をmock errorを返す
     const httpClientService = TestBed.inject(HttpClientService);
+    const error = new Error('httpClientServiceError')
     jest.spyOn(httpClientService,'sendResize').mockImplementation( (editorJson:object) => {
-      return new Observable(observer => { observer.error(new Error('httpClientServiceError').message) })
+      return new Observable(observer => { observer.error(error) })
     })
     // 正常時 入力
     component.imageId = '652f47086056dec9bd72b4d5';
@@ -105,7 +106,7 @@ describe('ResizeComponent', () => {
     button.click();
     tick();
     // message=='httpClientServiceError'
-    expect(component.message).toBe('httpClientServiceError');
+    expect(component.message).toBe('Error: httpClientServiceError');
   }));
 
 });

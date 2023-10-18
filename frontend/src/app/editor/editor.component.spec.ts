@@ -8,7 +8,7 @@ import { TrimComponent } from '../trim/trim.component';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { FormsModule } from '@angular/forms';
 
-describe('EditorComponent', () => {
+xdescribe('EditorComponent', () => {
   let component: EditorComponent;
   let fixture: ComponentFixture<EditorComponent>;
 

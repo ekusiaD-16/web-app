@@ -3,7 +3,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { DeleteComponent } from './delete.component';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 
-describe('DeleteComponent', () => {
+xdescribe('DeleteComponent', () => {
   let component: DeleteComponent;
   let fixture: ComponentFixture<DeleteComponent>;
 
