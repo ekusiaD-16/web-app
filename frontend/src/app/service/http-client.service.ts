@@ -10,7 +10,7 @@ export class HttpClientService {
   constructor(private httpClient : HttpClient) { }
 
   getImages() : Observable<any> {
-    return this.httpClient.get('/api/v1/images')
+    return this.httpClient.get('/api/v1/images/')
   }
 
   getImageById(imageId:string) : Observable<any> {
@@ -22,7 +22,7 @@ export class HttpClientService {
   }
 
   deleteImage(imageJson:object) : Observable<any> {
-    return this.httpClient.post('api/v1/delete', imageJson)
+    return this.httpClient.post('/api/v1/delete/', imageJson)
   }
 
   sendResize(editorJson:object) : Observable<any> {
