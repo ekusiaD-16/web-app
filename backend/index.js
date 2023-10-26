@@ -36,11 +36,14 @@ app.use('/api/v1/editor', editorRoutes)
 const appPath = path.join( __dirname, '..', 'frontend', 'dist', 'frontend')
 app.use(express.static(appPath))
 app.get('*', function(req, res) {
-    res.sendFile(path.resolve(appPath, 'index.html'))
+    res.json('hello my server')
 })
 
-const PORT = process.env.PORT || '3001'
+// server.js に分離　supertest導入のため
+// const PORT = process.env.PORT || '3001'
 
-app.listen(PORT, function() {
-    console.log('I am running!')
-})
+// app.listen(PORT, function() {
+//     console.log('I am running!')
+// })
+
+module.exports = app
